@@ -1,3 +1,5 @@
+This forge - has only one DIFF: It replaces flickrstatic from the search to the _big_ pictures. This way you don't need to click into each image to download a bigger version.
+
 Image Downloader
 ================
 If you need to bulk download images from a web page, with this extension you can:
