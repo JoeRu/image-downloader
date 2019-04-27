@@ -54,8 +54,20 @@
 
       const backgroundImage = window.getComputedStyle(element).backgroundImage;
       if (backgroundImage) {
-        const parsedURL = imageDownloader.extractURLFromStyle(backgroundImage);
+        var parsedURL = imageDownloader.extractURLFromStyle(backgroundImage);
         if (imageDownloader.isImageURL(parsedURL)) {
+          /*
+          _s = square (the thumbnail but reduced to a square size)
+          _t = thumbnail
+          _m = small (M for mini?)
+          no letter = default (the size displayed on the photo page, 500 * ...)
+          _b = big
+          _o = orig
+          */
+          let re = /.*staticflickr\.com.*/;
+          if(re.test(parsedURL)){
+            parsedURL = parsedURL.replace(/_.\.(jpeg|jpg)/, "_b.$1");
+          }
           return parsedURL;
         }
       }
